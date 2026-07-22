@@ -1,0 +1,19 @@
+overrides:
+  vite: "catalog:"
+  vitest: "catalog:"
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@0.0.0-commit.9855245a469b178066c25a5d45c971c130565d89
+  vitest: 4.1.10
+  vite-plus: 0.0.0-commit.9855245a469b178066c25a5d45c971c130565d89
+  "@vitest/browser-webdriverio": 4.1.10
+  "@vitest/coverage-v8": 4.1.10
+allowBuilds:
+  edgedriver: true
+  geckodriver: true
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: "*"
+    vitest: "*"
