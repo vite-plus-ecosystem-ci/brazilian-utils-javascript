@@ -41,7 +41,9 @@ export default defineConfig({
 		],
 	},
 	test: {
+		clearMocks: false,
 		browser: {
+			locators: { exact: false },
 			provider: webdriverio(),
 			instances: [
 				{ browser: "edge" },
