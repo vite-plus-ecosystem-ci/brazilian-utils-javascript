@@ -1,11 +1,11 @@
 import { existsSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 
+import { webdriverio } from "@vitest/browser-webdriverio";
 import { transform } from "esbuild";
 import { rules as sonarjsPluginRules } from "eslint-plugin-sonarjs";
 import { defineConfig } from "vite-plus";
 import { type PackUserConfig } from "vite-plus/pack";
-import { webdriverio } from "vite-plus/test/browser-webdriverio";
 
 const rootDir = import.meta.dirname;
 const srcDir = resolve(rootDir, "src");
@@ -515,12 +515,24 @@ export default defineConfig({
 		],
 	},
 	test: {
+		// Vitest v4 compatibility: preserve mock call history.
+		// Remove after tests no longer rely on calls from setup or earlier tests.
+		// https://rfc-vitest-v5-upgrade-viteplus-dev.voidzero-docs.workers.dev/guide/vitest-v5#remove-unneeded-compatibility-settings
+		// https://vitest.dev/guide/migration/#clearmocks-is-enabled-by-default
+		clearMocks: false,
 		exclude: ["**/node_modules/**", "**/dist/**", "**/.stryker-tmp/**", "**/reports/**"],
 		benchmark: {
 			include: ["src/**/*.test.ts"],
 			exclude: ["**/node_modules/**", "**/dist/**", "**/.stryker-tmp/**", "**/reports/**"],
 		},
 		browser: {
+			locators: {
+				// Vitest v4 compatibility: keep partial, case-insensitive locator matching.
+				// Remove after updating locators for full, case-sensitive matches.
+				// https://rfc-vitest-v5-upgrade-viteplus-dev.voidzero-docs.workers.dev/guide/vitest-v5#remove-unneeded-compatibility-settings
+				// https://vitest.dev/guide/migration/#locators-are-strict-by-default
+				exact: false,
+			},
 			provider: webdriverio(),
 			connectTimeout: 120_000,
 			instances: [

@@ -140,8 +140,8 @@
 		"@microsoft/api-extractor": "7.59.1",
 		"@stryker-mutator/core": "10.0.0",
 		"@stryker-mutator/vitest-runner": "10.0.0",
-		"@vitest/browser-webdriverio": "4.1.11",
-		"@vitest/coverage-v8": "4.1.11",
+		"@vitest/browser-webdriverio": "^5.0.0",
+		"@vitest/coverage-v8": "5.0.1",
 		"esbuild": "0.28.2",
 		"eslint-plugin-sonarjs": "^4.2.1",
 		"fast-check": "4.10.1",
@@ -150,11 +150,14 @@
 		"lockfile-lint": "5.0.1",
 		"publint": "0.3.24",
 		"typescript": "7.0.2",
-		"vite-plus": "0.3.2",
+		"vite": "npm:@voidzero-dev/vite-plus-core@0.0.0-commit.6b26ec56e76df770e2aa5ad78571d42d20b5383c",
+		"vite-plus": "0.0.0-commit.6b26ec56e76df770e2aa5ad78571d42d20b5383c",
+		"vitest": "5.0.1",
 		"webdriverio": "9.31.9"
 	},
 	"overrides": {
 		"@puppeteer/browsers@2": "^3.2.2",
+		"@vitest/browser": "5.0.1",
 		"basic-ftp@5": "^5.3.1",
 		"brace-expansion@2": "^2.1.2",
 		"eslint-plugin-sonarjs": {
@@ -169,6 +172,8 @@
 		"postcss@8": "^8.5.23",
 		"qs@6": "^6.16.0",
 		"undici@7": "^7.28.0",
+		"vite": "npm:@voidzero-dev/vite-plus-core@0.0.0-commit.6b26ec56e76df770e2aa5ad78571d42d20b5383c",
+		"vitest": "5.0.1",
 		"ws@8": "^8.21.0"
 	},
 	"devEngines": {
