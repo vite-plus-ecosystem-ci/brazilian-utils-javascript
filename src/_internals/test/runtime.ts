@@ -1,8 +1,10 @@
-import { type bench as vitestBench, type expectTypeOf as vitestExpectTypeOf } from "vite-plus/test";
+import { type expectTypeOf as vitestExpectTypeOf } from "vite-plus/test";
+
+import { type Benchmark } from "./noop";
 
 type RuntimeModule = {
 	afterEach: (callback: () => void | Promise<void>) => void;
-	bench: typeof vitestBench;
+	bench: Benchmark;
 	beforeEach: (callback: () => void | Promise<void>) => void;
 	describe: ((name: string, callback: () => void) => void) & {
 		skip: (name: string, callback: () => void) => void;

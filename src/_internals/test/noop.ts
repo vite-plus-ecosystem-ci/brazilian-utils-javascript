@@ -1,4 +1,4 @@
-import { type bench as vitestBench, type expectTypeOf as vitestExpectTypeOf } from "vite-plus/test";
+import { type expectTypeOf as vitestExpectTypeOf } from "vite-plus/test";
 
 const chain: unknown = new Proxy(() => chain, { apply: () => chain, get: () => chain });
 
@@ -15,4 +15,5 @@ export const expectTypeOf = chain as typeof vitestExpectTypeOf;
  * a `describe("<name> benchmarks")` block registers nothing there. `npm run bench` runs vitest in
  * benchmark mode, where the real `bench` is used and the `test` blocks are ignored instead.
  */
-export const bench = chain as typeof vitestBench;
+export type Benchmark = (name: string, fn: () => void | Promise<void>) => void;
+export const bench = chain as Benchmark;
